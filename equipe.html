@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Équipe Azzera Protect | Sécurité privée à Fréjus</title>
+    <meta name="description" content="Découvrez l’équipe dirigeante d’Azzera Protect, agence de sécurité privée basée à Fréjus, et sa vision de la protection des personnes et des sites.">
+    <meta name="author" content="Azzera Protect">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#0a0e13">
+    <link rel="canonical" href="https://azzeraprotect.fr/equipe.html">
+
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Azzera Protect">
+    <meta property="og:title" content="L’équipe Azzera Protect | Sécurité privée à Fréjus">
+    <meta property="og:description" content="Découvrez l’équipe dirigeante d’Azzera Protect et sa vision de la sécurité privée à Fréjus.">
+    <meta property="og:url" content="https://azzeraprotect.fr/equipe.html">
+    <meta property="og:image" content="https://azzeraprotect.fr/img/logo-protect.png">
+    <meta property="og:image:alt" content="Logo Azzera Protect">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="L’équipe Azzera Protect | Sécurité privée à Fréjus">
+    <meta name="twitter:description" content="Découvrez l’équipe dirigeante d’Azzera Protect et sa vision de la sécurité privée à Fréjus.">
+    <meta name="twitter:image" content="https://azzeraprotect.fr/img/logo-protect.png">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .team-3d-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 40px; 
+            justify-items: center;
+            padding: 60px 0;
+        }
+
+        .team-card {
+            background-color: transparent;
+            width: 100%;
+            max-width: 360px; 
+            height: 520px; 
+            perspective: 1500px; 
+            cursor: pointer;
+        }
+
+        .team-card-inner {
+            position: relative; width: 100%; height: 100%; text-align: center;
+            transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+        }
+
+        .team-card.is-flipped .team-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .team-card-front, .team-card-back {
+            position: absolute; width: 100%; height: 100%;
+            -webkit-backface-visibility: hidden; backface-visibility: hidden;
+            border-radius: 8px; overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.05);
+            background-color: #0a0e13;
+        }
+
+        /* --- FACE AVANT --- */
+        .team-card-front img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            filter: grayscale(80%) contrast(110%); transition: all 0.6s ease; 
+        }
+        .team-card:hover .team-card-front img { 
+            filter: grayscale(0%) contrast(100%); transform: scale(1.05); 
+        }
+
+        .play-overlay {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.2);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; opacity: 0; transition: all 0.4s ease;
+        }
+        .team-card:hover .play-overlay { opacity: 1; background: rgba(0,0,0,0.4); }
+        
+        .play-overlay i { 
+            font-size: 55px; margin-bottom: 15px; color: #fff; 
+            text-shadow: 0 10px 20px rgba(0,0,0,0.5); transition: transform 0.3s ease; 
+        }
+        .team-card:hover .play-overlay i { transform: scale(1.1); }
+        .play-overlay span { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+
+        .team-info {
+            position: absolute; bottom: 0; width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, transparent);
+            padding: 50px 20px 25px 20px; color: white; text-align: left;
+        }
+        .team-info h4 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 5px; font-weight: 900; }
+        .team-info p { font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+
+        /* --- FACE ARRIÈRE (VIDÉO & COMPÉTENCES) --- */
+        .team-card-back { transform: rotateY(180deg); }
+        .team-card-back video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+        
+        /* Le bandeau de compétences par-dessus la vidéo */
+        .back-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%; z-index: 2;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 50%, rgba(0,0,0,0.6) 80%, transparent);
+            padding: 40px 25px 25px 25px; text-align: left; color: white;
+        }
+        .back-overlay p { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; margin-bottom: 15px; color: #fff; }
+        .back-skills { list-style: none; padding: 0; margin: 0; }
+        .back-skills li { font-family: 'Inter', sans-serif; font-size: 13px; color: #ccc; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 10px; }
+        .back-skills li i { color: #fff; margin-top: 3px; font-size: 11px; }
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://azzeraprotect.fr/equipe.html#webpage",
+  "url": "https://azzeraprotect.fr/equipe.html",
+  "name": "Équipe Azzera Protect | Sécurité privée à Fréjus",
+  "description": "Découvrez l’équipe dirigeante d’Azzera Protect, agence de sécurité privée basée à Fréjus, et sa vision de la protection des personnes et des sites.",
+  "inLanguage": "fr-FR",
+  "about": {
+    "@id": "https://azzeraprotect.fr/#business"
+  },
+  "isPartOf": {
+    "@id": "https://azzeraprotect.fr/#website"
+  }
+}
+    </script>
+
+    <style>
+        /* Liens légaux — finition premium spécifique à la page Équipe */
+        .legal-compliance .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 0 auto 34px;
+        }
+
+        .legal-compliance .footer-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 11px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.055);
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.15px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            transition: transform .22s ease, border-color .22s ease,
+                        background .22s ease, color .22s ease,
+                        box-shadow .22s ease;
+        }
+
+        .legal-compliance .footer-links a:hover {
+            transform: translateY(-2px);
+            border-color: rgba(90, 200, 250, 0.48);
+            background: rgba(90, 200, 250, 0.10);
+            color: #ffffff;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24),
+                        0 0 0 1px rgba(90, 200, 250, 0.06);
+        }
+
+        .legal-compliance .footer-links a:focus-visible {
+            outline: 2px solid var(--blue-protect);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 640px) {
+            .legal-compliance .footer-links {
+                gap: 9px;
+                margin-bottom: 28px;
+            }
+
+            .legal-compliance .footer-links a {
+                width: 100%;
+                max-width: 330px;
+                padding: 11px 16px;
+            }
+        }
+    </style>
+
+
+    <style>
+        /* Liens légaux — finition premium sur toutes les pages */
+        .legal-compliance .footer-links,
+        .legal-links-pills {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 0 auto 34px;
+        }
+
+        .legal-compliance .footer-links a,
+        .legal-links-pills a {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-height: 44px;
+            padding: 11px 20px !important;
+            border: 1px solid rgba(255, 255, 255, 0.14) !important;
+            border-radius: 999px !important;
+            background: rgba(255, 255, 255, 0.055) !important;
+            color: rgba(255, 255, 255, 0.86) !important;
+            font-size: 13px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.15px !important;
+            text-transform: none !important;
+            text-decoration: none !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16) !important;
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            transition: transform .22s ease, border-color .22s ease,
+                        background .22s ease, color .22s ease,
+                        box-shadow .22s ease;
+        }
+
+        .legal-compliance .footer-links a:hover,
+        .legal-links-pills a:hover {
+            transform: translateY(-2px);
+            border-color: rgba(90, 200, 250, 0.48) !important;
+            background: rgba(90, 200, 250, 0.10) !important;
+            color: #ffffff !important;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24),
+                        0 0 0 1px rgba(90, 200, 250, 0.06) !important;
+        }
+
+        .legal-compliance .footer-links a:focus-visible,
+        .legal-links-pills a:focus-visible {
+            outline: 2px solid var(--blue-protect);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 640px) {
+            .legal-compliance .footer-links,
+            .legal-links-pills {
+                gap: 9px;
+                margin-bottom: 28px;
+            }
+
+            .legal-compliance .footer-links a,
+            .legal-links-pills a {
+                width: 100%;
+                max-width: 330px;
+                padding: 11px 16px !important;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav class="topbar-corporate">
+        <ul class="topbar-links">
+            <li><a href="https://azzerainvest.fr">AZZERA INVEST</a></li>
+            <li><a href="index.html" class="active">AZZERA PROTECT</a></li>
+            <li><a href="https://azzeraservices.fr">AZZERA SERVICES+</a></li>
+            <li><a href="https://azzera-academy.fr">AZZERA ACADEMY</a></li>
+        </ul>
+    </nav>
+
+    <header class="main-header">
+        <div class="container header-flex">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
+                    <img src="img/logo-protect.png" alt="Logo Azzera Protect" class="header-logo">
+                    <h1 style="color: var(--apple-black); margin: 0;">AZZERA <span>PROTECT</span></h1>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="services.html">Nos Services</a></li>
+                    <li><a href="partenaires.html">Nos Partenaires</a></li>
+                    <li><a href="equipe.html" class="active">L'Équipe</a></li>
+                    <li><a href="contact.html" class="btn-contact-nav">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="internal-hero">
+        <div class="container text-center">
+            <h2 class="hero-title fade-in-up">NOTRE ÉQUIPE</h2>
+            <p class="hero-subtitle fade-in-up delay-1">L'humain au cœur de votre sécurité.</p>
+        </div>
+    </section>
+
+    <section class="edito-section fade-in-up delay-1">
+        <div class="container">
+            <div class="edito-box">
+                <i class="fas fa-quote-left edito-icon"></i>
+                <h3 class="edito-title">Vision & Engagement</h3>
+                <div class="edito-content">
+                    <p>En tant que président d'Azzera Protect, basée à Fréjus, je suis fier de diriger une entreprise dédiée à l'excellence en matière de sécurité. Notre mission est de vous offrir une protection inégalée, en combinant l'expertise humaine avec les technologies de pointe les plus récentes.</p>
+                    <p>C'est une nouvelle ère qui s'ouvre, une ère où l'intelligence artificielle et l'humain travaillent main dans la main pour une protection plus intelligente et plus efficace. Chez Azzera Protect, nous ne nous contentons pas de réagir aux incidents ; nous les prévenons. Nous sommes votre partenaire de confiance pour une sécurité qui allie tradition et innovation, au service de votre sérénité.</p>
+                    <p>Plus qu'une société de sécurité, nous sommes un laboratoire d'idées. Nous ne cessons d'innover pour construire un futur où la protection est intelligente, proactive et parfaitement intégrée aux défis de notre temps.</p>
+                    <p class="edito-highlight">Préparez-vous à une nouvelle ère de la sécurité. Rejoignez-nous dans cette aventure.</p>
+                </div>
+                <div class="edito-signature">
+                    <strong>Yannice LIBAULT</strong>
+                    <span>Président</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 60px 0 100px 0;">
+        <div class="container">
+            
+            <div class="team-3d-grid fade-in-up delay-2">
+                
+                <div class="team-card" onclick="toggleVideoFlip(this)">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="img/equipe/yannice.jpg" alt="Yannice Libault">
+                            <div class="play-overlay">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Présentation Vidéo</span>
+                            </div>
+                            <div class="team-info">
+                                <h4>Yannice LIBAULT</h4>
+                                <p>Président Fondateur</p>
+                            </div>
+                        </div>
+                        <div class="team-card-back">
+                            <video src="video/yannice-libault.mp4" playsinline loop></video>
+                            <div class="back-overlay">
+                                <p>Gouvernance & Stratégie</p>
+                                <ul class="back-skills">
+                                    <li><i class="fas fa-check"></i> Pilotage stratégique de l'entreprise</li>
+                                    <li><i class="fas fa-check"></i> Relations institutionnelles</li>
+                                    <li><i class="fas fa-check"></i> Développement des pôles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card" onclick="toggleVideoFlip(this)">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="img/equipe/mehdi.jpg" alt="Mehdi Libault">
+                            <div class="play-overlay">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Présentation Vidéo</span>
+                            </div>
+                            <div class="team-info">
+                                <h4>Mehdi LIBAULT</h4>
+                                <p>Responsable Communication</p>
+                            </div>
+                        </div>
+                        <div class="team-card-back">
+                            <video src="video/mehdi-libault.mp4" playsinline loop></video>
+                            <div class="back-overlay">
+                                <p>Stratégie & Relations Publiques</p>
+                                <ul class="back-skills">
+                                    <li><i class="fas fa-check"></i> Gestion de la marque Azzera</li>
+                                    <li><i class="fas fa-check"></i> Communication digitale</li>
+                                    <li><i class="fas fa-check"></i> Supports institutionnels</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="legal-compliance" style="margin-top: 40px;">
+        <div class="container">
+            <div class="footer-links legal-links-pills">
+                <a href="politique-confidentialite.html">Politique de confidentialité</a>
+                <a href="mentions-legales.html">Mentions légales</a>
+                <a href="cgu.html">CGU</a>
+            </div>
+            <div class="official-badge-container">
+                <div class="official-badge">
+                    <div class="badge-icon"><i class="fas fa-shield-halved"></i></div>
+                    <div class="badge-content">
+                        <p class="badge-title">AZZERA PROTECT SAS • Entreprise Agréée</p>
+                        <p class="badge-numbers"><strong>SIRET :</strong> 92492699100010 &nbsp;|&nbsp; <strong>Autorisation CNAPS :</strong> AUT-083-2123-05-14-20240931815</p>
+                        <p class="small-text">Art. L612-14 CSI : L'autorisation d'exercice ne confère aucune prérogative de puissance publique à l'entreprise ou aux personnes qui en bénéficient.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="compliance-inner">
+                <p>&copy; 2026 par AZZERA PROTECT SAS : 131 Avenue de Verdun, 83600 Fréjus.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleVideoFlip(card) {
+            // Coupe la vidéo des autres cartes si elles sont ouvertes
+            document.querySelectorAll('.team-card.is-flipped').forEach(flippedCard => {
+                if (flippedCard !== card) {
+                    flippedCard.classList.remove('is-flipped');
+                    flippedCard.querySelector('video').pause();
+                }
+            });
+
+            // Bascule la carte cliquée
+            card.classList.toggle('is-flipped');
+            const video = card.querySelector('video');
+            
+            if (card.classList.contains('is-flipped')) {
+                video.currentTime = 0; // Repart du début
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+    </script>
+</body>
+</html>
