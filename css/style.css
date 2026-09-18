@@ -22,7 +22,7 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 body {
@@ -31,7 +31,7 @@ body {
     background-color: var(--white);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 .container {
@@ -124,6 +124,7 @@ section {
 .main-header {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px);
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -733,7 +734,6 @@ section {
 @media (max-width: 768px) {
     .container { padding: 0 20px; }
     .stats-grid, .team-grid { grid-template-columns: 1fr; gap: 30px; }
-    .main-nav ul { display: none; }
     .contact-card { flex-direction: column; text-align: center; padding: 40px; }
     .emergency-cta { text-align: center; margin-top: 30px; }
     .target-buttons { flex-direction: column; width: 100%; align-items: center; }
@@ -872,4 +872,84 @@ section {
     height: 100%;
     object-fit: cover; /* La vidéo remplit toute la carte sans se déformer */
     border-radius: 28px;
+}
+
+/* --- RESPONSIVE TOPBAR IDENTIQUE AZZERA SERVICES+ --- */
+@media (max-width: 768px) {
+    .topbar-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
+    .topbar-links a {
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   HEADER MOBILE COMPLET — ALIGNÉ SUR AZZERA SERVICES+
+   La barre corporate reste visible, puis le logo et le menu
+   Nos Services / Nos Partenaires / L'Équipe / Contact suivent.
+   ========================================================= */
+@media (max-width: 768px) {
+    .main-header {
+        height: auto !important;
+        padding: 15px 0;
+    }
+
+    .header-flex {
+        height: auto !important;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .logo {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+
+    .logo a {
+        flex-direction: column !important;
+        gap: 5px !important;
+        text-align: center;
+    }
+
+    .header-logo,
+    .logo img {
+        max-height: 60px !important;
+        width: auto;
+    }
+
+    .logo h1 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .main-nav {
+        width: 100%;
+    }
+
+    .main-nav ul {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        padding: 0 0 5px 0;
+        margin: 0;
+    }
+
+    .main-nav a {
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    .btn-contact-nav {
+        padding: 7px 16px;
+    }
 }
